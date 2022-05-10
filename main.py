@@ -7,10 +7,10 @@ get_word = {}
 
 try:
     df = pd.read_csv("to_learn.csv")
-    df_dic = df.to_dict(orient="records")
 except FileNotFoundError:
     df = pd.read_csv("french_words.csv")
-    df_dic = df.to_dict(orient="records")
+
+df_dic = df.to_dict(orient="records")
 
 
 window = Tk()
@@ -44,9 +44,9 @@ def next_word():
 
 def delete_word():
     df_dic.remove(get_word)
-    # print(len(df_dic))
     to_learn_df = pd.DataFrame(df_dic)
-    to_learn_df.to_csv("to_learn.csv")
+    print(to_learn_df)
+    to_learn_df.to_csv("to_learn.csv", index=False)
     next_word()
 
 
