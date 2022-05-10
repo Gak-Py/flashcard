@@ -45,7 +45,6 @@ def next_word():
 def delete_word():
     df_dic.remove(get_word)
     to_learn_df = pd.DataFrame(df_dic)
-    print(to_learn_df)
     to_learn_df.to_csv("to_learn.csv", index=False)
     next_word()
 
